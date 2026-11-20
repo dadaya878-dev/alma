@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111a1b">
+  <title>АЛЬМА — интерактивный прототип</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="game">
+    <div class="topline">
+      <div class="brand">АЛЬМА <span>ГЛАВА I · СЛЕДЫ</span></div>
+      <div class="objective">Найди подсказку</div>
+    </div>
+    <div id="message" class="message">Аня пришла на опушку. Осмотрись вокруг.</div>
+    <div class="crosshair">+</div>
+    <div class="bottomline">
+      <span>WASD — движение</span><span>МЫШЬ — осмотр</span><span>E — взаимодействие</span>
+    </div>
+    <div id="start" class="start">
+      <div class="start-card">
+        <div class="eyebrow">ИНТЕРАКТИВНЫЙ ПРОТОТИП</div>
+        <h1>АЛЬМА</h1>
+        <p>Аня ищет свою собаку. На опушке леса осталась первая зацепка.</p>
+        <button id="startButton">НАЧАТЬ</button>
+        <small>Для комфортной игры используй клавиатуру и мышь.</small>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
