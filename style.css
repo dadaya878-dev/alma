@@ -18,3 +18,13 @@ button { margin: 24px 0 12px; width: 100%; border: 0; padding: 16px; background:
 button:hover { background: #d0bf91; }
 .start-card small { display: block; color: #81918a; font-size: 11px; }
 @media (max-width: 600px) { .topline { padding: 16px; } .bottomline { gap: 10px; font-size: 8px; } .message { bottom: 74px; } .start-card { padding: 28px; } }
+/* Chapter-one polish */
+.message { min-height: 48px; width: max-content; max-width: min(720px, 90vw); box-shadow: 0 10px 35px #0005; }
+.objective { border-color: #c5b58a66; color: #e5d6ac; }
+canvas { outline: none; }
+button:focus-visible { outline: 2px solid #f0dfae; outline-offset: 4px; }
+@media (max-width: 600px) {
+  .brand { font-size: 14px; }
+  .objective { max-width: 48vw; font-size: 10px; text-align: right; }
+  .bottomline { flex-wrap: wrap; line-height: 1.5; }
+}
