@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://scripts/clue.gd" id="2_clue"]
+
+[sub_resource type="Environment" id="Environment_main"]
+background_mode = 1
+background_color = Color(0.055, 0.075, 0.09, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.58, 0.63, 0.68, 1)
+ambient_light_energy = 0.7
+
+[sub_resource type="BoxShape3D" id="FloorShape"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="BoxMesh" id="FloorMesh"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="BoxShape3D" id="ClueShape"]
+size = Vector3(0.55, 0.35, 0.12)
+
+[node name="ALMA" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_main")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-0.82, -0.55, 0)
+light_energy = 1.1
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("FloorShape")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("FloorMesh")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector3(0, 0, 5)
+
+[node name="Medallion" type="StaticBody3D" parent="."]
+position = Vector3(0, 0.25, -2.5)
+script = ExtResource("2_clue")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Medallion"]
+shape = SubResource("ClueShape")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Medallion"]
+mesh = SubResource("BoxMesh")
+scale = Vector3(0.018, 0.35, 0.12)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Hint" type="Label" parent="HUD"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 920.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 22
+text = "Исследуй место. Подойди к предмету и нажми E."
+
+[node name="Objective" type="Label" parent="HUD"]
+offset_left = 24.0
+offset_top = 94.0
+offset_right = 800.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 17
+text = "Глава 1 — Следы. Найди подсказку."
